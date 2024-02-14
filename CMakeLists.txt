@@ -104,7 +104,7 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(EXPORT ${PROJECT_NAME}-targets
         NAMESPACE ${PROJECT_NAME}::
         FILE ${PROJECT_NAME}-config.cmake
-        DESTINATION lib/cmake/tgbot)
+        DESTINATION lib/cmake/${PROJECT_NAME})
 set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 # ABI version
