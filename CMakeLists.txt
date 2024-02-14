@@ -94,10 +94,15 @@ target_include_directories(${PROJECT_NAME} PUBLIC include)
 target_link_libraries(${PROJECT_NAME} ${LIB_LIST})
 include(GNUInstallDirs)
 install(TARGETS ${PROJECT_NAME}
+        EXPORT tgbot-targets
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(EXPORT tgbot-targets
+    NAMESPACE tgbot::
+    FILE tgbot-config.cmake
+    DESTINATION lib/cmake/tgbot)
 set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 # ABI version
